@@ -1,9 +1,23 @@
 ﻿<Window x:Class="RibbonizerSample.ShellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:navigation="NavigationPane" 
         Title="Ribbonizer Sample" Height="507" Width="808">
-    <Grid>
-        <Ribbon HorizontalAlignment="Left" VerticalAlignment="Top" Width="800"/>
-
-    </Grid>
+    <DockPanel>
+        <Ribbon DockPanel.Dock="Top"/>
+        <navigation:NavigationPane DockPanel.Dock="Left" 
+                                   LargeItems="5" 
+                                   HorizontalAlignment="Left"
+                                   Width="100">
+            <navigation:NavigationPaneItem Name="Mail" 
+                                           Header="Mail"
+                                           ImageSmall="Resources/mail.ico"
+                                           Image="Resources/mail.ico"/>
+            <navigation:NavigationPaneItem Name="Contacts" 
+                                           Header="Contacts"
+                                           ImageSmall="Resources/contact.png"
+                                           Image="Resources/contact.png"/>
+        </navigation:NavigationPane>
+        <TextBlock DockPanel.Dock="Right"/>
+    </DockPanel>
 </Window>
