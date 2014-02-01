@@ -1,6 +1,6 @@
 ﻿namespace Ribbonizer.Ribbon
 {
-    internal interface IRibbonInitializer
+    public interface IRibbonInitializer
     {
         void InitializeRibbonViewTree();
     }

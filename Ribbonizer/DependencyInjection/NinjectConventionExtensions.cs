@@ -10,12 +10,12 @@ namespace Ribbonizer.DependencyInjection
 
     public static class NinjectConventionExtensions
     {
-        private const string ScanPattern = "Erowa.EMC.*";
+        private const string ScanPattern = "Ribbon.*";
 
         private const string TestAssemblySuffix = "Test.dll";
         private const string SpecificationsAssemblySuffix = "Specifications.dll";
 
-        public static IIncludingNonePublicTypesSelectSyntax FromEmcProductionAssemblies(this IFromSyntax syntax)
+        public static IIncludingNonePublicTypesSelectSyntax FromProductionAssemblies(this IFromSyntax syntax)
         {
             using (var assemblyNameRetriever = new AssemblyNameRetriever())
             {
@@ -23,7 +23,7 @@ namespace Ribbonizer.DependencyInjection
 
                 IEnumerable<string> assemblyFileNames = assemblyFinder
                     .FindAssembliesMatching(new[] { ScanPattern })
-                    .Where(assemblyFileName => IsEmcProductionAssembly(assemblyFileName));
+                    .Where(assemblyFileName => IsProductionAssembly(assemblyFileName));
 
                 return syntax.From(assemblyFileNames);
             }
@@ -35,7 +35,7 @@ namespace Ribbonizer.DependencyInjection
             return syntax.BindSelection((type, baseTypes) => types);
         }
 
-        private static bool IsEmcProductionAssembly(string assemblyFileName)
+        private static bool IsProductionAssembly(string assemblyFileName)
         {
             return !assemblyFileName.EndsWith(TestAssemblySuffix, StringComparison.OrdinalIgnoreCase)
                 && !assemblyFileName.EndsWith(SpecificationsAssemblySuffix, StringComparison.OrdinalIgnoreCase);

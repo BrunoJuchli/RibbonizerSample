@@ -1,8 +1,10 @@
 ﻿namespace Ribbonizer.Ribbon.Tools
 {
+    using Ninject.Extensions.Conventions;
     using Ninject.Extensions.NamedScope;
     using Ninject.Modules;
 
+    using Ribbonizer.DependencyInjection;
     using Ribbonizer.Ribbon.DefinitionValidation;
     using Ribbonizer.Ribbon.Groups;
 
@@ -26,6 +28,7 @@
             this.Bind<IRibbonChildrenViewBuilder<object>>().To<RibbonChildrenViewBuilder<IRibbonToolDefinition, object>>();
 
             this.BindDefinitionValidators();
+            this.BindDefinitions();
         }
 
         private void BindDefinitionValidators()
@@ -33,6 +36,16 @@
             this.Bind<IRibbonDefinitionValidator>().To<RibbonDefinitionWireOnActivationOfViewModelTypeValidator<IRibbonToolWireOnActivationDefinition>>();
             this.Bind<IRibbonDefinitionValidator>().To<RibbonDefinitionParentTypeValidator<IRibbonToolDefinition, IRibbonGroupDefinition>>();
             this.Bind<IRibbonDefinitionValidator>().To<RibbonDefinitionSortIndexValidator<IRibbonToolDefinition>>();
+        }
+
+        private void BindDefinitions()
+        {
+            this.Bind(x => x
+                .FromProductionAssemblies()
+                .IncludingNonePublicTypes()
+                .SelectAllClasses()
+                .InheritedFrom<IRibbonToolDefinition>()
+                .BindWith<RibbonBindingGenerator<IRibbonToolDefinition>>());
         }
     }
 }

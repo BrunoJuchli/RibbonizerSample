@@ -102,7 +102,6 @@
     <Compile Include="Ribbon\Groups\IRibbonGroupDefinition.cs" />
     <Compile Include="Ribbon\Groups\IRibbonGroupView.cs" />
     <Compile Include="Ribbon\Groups\RibbonGroupFactory.cs" />
-    <Compile Include="Ribbon\Groups\RibbonGroupsDefinitionsConventionModule.cs" />
     <Compile Include="Ribbon\Groups\RibbonGroupsModule.cs" />
     <Compile Include="Ribbon\IGroupedDefinitionProvider.cs" />
     <Compile Include="Ribbon\IRibbonChildrenViewBuilder.cs" />
@@ -117,7 +116,6 @@
     <Compile Include="Ribbon\RibbonBindingExtensions.cs" />
     <Compile Include="Ribbon\RibbonBindingGenerator.cs" />
     <Compile Include="Ribbon\RibbonChildrenViewBuilder.cs" />
-    <Compile Include="Ribbon\RibbonInitializationExtension.cs" />
     <Compile Include="Ribbon\RibbonInitializer.cs" />
     <Compile Include="Ribbon\RibbonModule.cs" />
     <Compile Include="Ribbon\RibbonProvider.cs" />
@@ -133,7 +131,6 @@
     <Compile Include="Ribbon\Tabs\RibbonTabFactory.cs" />
     <Compile Include="Ribbon\Tabs\RibbonTabLifecycleExtension.cs" />
     <Compile Include="Ribbon\Tabs\RibbonTabLifecycleExtensionProvider.cs" />
-    <Compile Include="Ribbon\Tabs\RibbonTabsDefinitionsConventionModule.cs" />
     <Compile Include="Ribbon\Tabs\RibbonTabsModule.cs" />
     <Compile Include="Ribbon\Tabs\RibbonTabViewCache.cs" />
     <Compile Include="Ribbon\Tools\Button\IInitializableRibbonButtonToolCommand.cs" />
@@ -161,7 +158,6 @@
     <Compile Include="Ribbon\Tools\RibbonToolBuilder.cs" />
     <Compile Include="Ribbon\Tools\RibbonToolControllerCache.cs" />
     <Compile Include="Ribbon\Tools\RibbonToolControllerFactory.cs" />
-    <Compile Include="Ribbon\Tools\RibbonToolDefinitionsConventionModule.cs" />
     <Compile Include="Ribbon\Tools\RibbonToolFactory.cs" />
     <Compile Include="Ribbon\Tools\RibbonToolLifecycleExtension.cs" />
     <Compile Include="Ribbon\Tools\RibbonToolLifecycleExtensionProvider.cs" />

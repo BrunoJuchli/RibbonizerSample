@@ -9,6 +9,8 @@
     using Ninject;
 
     using Ribbonizer.DependencyInjection;
+    using Ribbonizer.Ribbon;
+    using Ribbonizer.Wrappers.Microsoft;
 
     public class Bootstrapper : Bootstrapper<ShellViewModel>
     {
@@ -18,8 +20,12 @@
         {
             this.kernel = new StandardKernel();
             this.kernel.Load<DependencyInjectionModule>();
+            this.kernel.Load<RibbonModule>();
+            this.kernel.Load<MicrosoftRibbonWrappersModule>();
             
             this.kernel.Bind<IWindowManager>().To<WindowManager>().InSingletonScope();
+
+            this.kernel.Get<IRibbonInitializer>().InitializeRibbonViewTree();
 
             base.Configure();
         }

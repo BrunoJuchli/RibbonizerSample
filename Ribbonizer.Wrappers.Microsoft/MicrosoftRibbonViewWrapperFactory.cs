@@ -8,7 +8,7 @@
     {
         public IRibbonView CreateRibbonWrapper(Ribbon ribbon)
         {
-            throw new System.NotImplementedException();
+            return new RibbonWrapper(ribbon);
         }
     }
 }
