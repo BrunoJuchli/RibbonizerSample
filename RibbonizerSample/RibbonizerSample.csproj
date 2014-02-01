@@ -91,6 +91,9 @@
     <Compile Include="IPageViewModel.cs" />
     <Compile Include="SampleTracking\ActivationLoggingExtension.cs" />
     <Compile Include="SampleTracking\ActivationLoggingExtensionProvider.cs" />
+    <Compile Include="SampleTracking\IViewModelActivationTrackingCollection.cs" />
+    <Compile Include="SampleTracking\SampleTrackingModule.cs" />
+    <Compile Include="SampleTracking\ViewModelActivationTrackingCollection.cs" />
     <Compile Include="ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>

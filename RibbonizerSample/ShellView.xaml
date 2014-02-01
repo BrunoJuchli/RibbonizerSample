@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:navigation="NavigationPane" 
         xmlns:cal="http://www.caliburnproject.org"
-        Title="Ribbonizer Sample" Height="507" Width="808"
+        Title="Ribbonizer Sample" Height="600" Width="1024"
         Loaded="OnLoaded">
     <DockPanel>
         <Ribbon DockPanel.Dock="Top" Name="Ribbon"/>
@@ -23,31 +23,22 @@
                                            Image="Resources/contact.png"
                                            IsSelected="False"/>
         </navigation:NavigationPane>
-        
-        <Grid DockPanel.Dock="Right">
-            
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="3"/>
-                <ColumnDefinition Width="200"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
 
-            <UserControl Grid.Column="0"
+        <ListBox DockPanel.Dock="Bottom"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+                     ItemsSource="{Binding Path=ActivationTrackingCollection}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <UserControl
                          x:Name="Page"
                          DockPanel.Dock="Left"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch"/>
-            
-            <GridSplitter Background="DarkGray"
-                          ResizeDirection="Columns" 
-                          Grid.Column="1"
-                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                          ResizeBehavior="PreviousAndNext" />
-            
-            <TextBlock Grid.Column="2"
-                       Text="Tracking"
-                       HorizontalAlignment="Stretch"
-                       DockPanel.Dock="Right"/>
-        </Grid>
     </DockPanel>
 </Window>

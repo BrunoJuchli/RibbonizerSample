@@ -4,14 +4,24 @@
 
     public class ActivationLoggingExtension : ILifecycleExtension
     {
+        private readonly object viewModel;
+
+        private readonly IViewModelActivationTrackingCollection activationTrackingCollection;
+
+        public ActivationLoggingExtension(object viewModel, IViewModelActivationTrackingCollection activationTrackingCollection)
+        {
+            this.viewModel = viewModel;
+            this.activationTrackingCollection = activationTrackingCollection;
+        }
+
         public void Activate()
         {
-            throw new System.NotImplementedException();
+            this.activationTrackingCollection.Add(string.Format("{0} + Activated", this.viewModel));
         }
 
         public void Deactivate()
         {
-            throw new System.NotImplementedException();
+            this.activationTrackingCollection.Add(string.Format("{0} - Deactivated", this.viewModel));
         }
     }
 }

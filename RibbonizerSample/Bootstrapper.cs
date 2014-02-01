@@ -14,6 +14,8 @@
     using Ribbonizer.ViewModel.Lifecycle;
     using Ribbonizer.Wrappers.Microsoft;
 
+    using RibbonizerSample.SampleTracking;
+
     public class Bootstrapper : BootstrapperBase
     {
         private readonly IKernel kernel;
@@ -32,6 +34,7 @@
             this.kernel.Load<LifecycleModule>();
             this.kernel.Load<RibbonModule>();
             this.kernel.Load<MicrosoftRibbonWrappersModule>();
+            this.kernel.Load<SampleTrackingModule>();
             
             this.kernel.Bind<IWindowManager>().To<WindowManager>().InSingletonScope();
 

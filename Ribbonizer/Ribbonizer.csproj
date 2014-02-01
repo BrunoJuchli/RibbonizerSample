@@ -73,6 +73,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conventions.cs" />
     <Compile Include="DependencyInjection\Factory.cs" />
     <Compile Include="DependencyInjection\DependencyInjectionModule.cs" />
     <Compile Include="DependencyInjection\IFactory.cs" />
@@ -171,7 +172,7 @@
     <Compile Include="ViewModel\Lifecycle\Activatable\DeactivatableConductorProvider.cs" />
     <Compile Include="ViewModel\Lifecycle\Activatable\IActivatable.cs" />
     <Compile Include="ViewModel\Lifecycle\Activatable\IDeactivatable.cs" />
-    <Compile Include="ViewModel\Lifecycle\ChildrenConductor.cs" />
+    <Compile Include="ViewModel\Lifecycle\Children\SingleChildConductor.cs" />
     <Compile Include="ViewModel\Lifecycle\ILifecycleController.cs" />
     <Compile Include="ViewModel\Lifecycle\ILifecycleExtension.cs" />
     <Compile Include="ViewModel\Lifecycle\ILifecycleExtensionBuilder.cs" />
@@ -186,7 +187,7 @@
     <Compile Include="ViewModel\Lifecycle\LifecycleExtensionTypeCache.cs" />
     <Compile Include="ViewModel\Lifecycle\LifecycleManager.cs" />
     <Compile Include="ViewModel\Lifecycle\LifecycleModule.cs" />
-    <Compile Include="ViewModel\Lifecycle\ChildrenConductorProvider.cs" />
+    <Compile Include="ViewModel\Lifecycle\Children\SingleChildConductorProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />

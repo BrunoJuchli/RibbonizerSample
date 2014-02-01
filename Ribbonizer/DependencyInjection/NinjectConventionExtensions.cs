@@ -10,7 +10,7 @@ namespace Ribbonizer.DependencyInjection
 
     public static class NinjectConventionExtensions
     {
-        private const string ScanPattern = "Ribbon.*";
+        private const string ScanPattern = "Ribbonizer*";
 
         private const string TestAssemblySuffix = "Test.dll";
         private const string SpecificationsAssemblySuffix = "Specifications.dll";
