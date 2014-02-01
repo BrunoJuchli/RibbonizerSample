@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Reflection;
+    using System.Windows;
 
     using Caliburn.Micro;
 
@@ -10,16 +11,25 @@
 
     using Ribbonizer.DependencyInjection;
     using Ribbonizer.Ribbon;
+    using Ribbonizer.ViewModel.Lifecycle;
     using Ribbonizer.Wrappers.Microsoft;
 
-    public class Bootstrapper : Bootstrapper<ShellViewModel>
+    public class Bootstrapper : BootstrapperBase
     {
-        private IKernel kernel;
-        
-        protected override void Configure()
+        private readonly IKernel kernel;
+
+        private ShellViewModel shellViewModel;
+
+        public Bootstrapper()
         {
             this.kernel = new StandardKernel();
+            this.Start();
+        }
+
+        protected override void Configure()
+        {
             this.kernel.Load<DependencyInjectionModule>();
+            this.kernel.Load<LifecycleModule>();
             this.kernel.Load<RibbonModule>();
             this.kernel.Load<MicrosoftRibbonWrappersModule>();
             
@@ -28,6 +38,21 @@
             this.kernel.Get<IRibbonInitializer>().InitializeRibbonViewTree();
 
             base.Configure();
+        }
+
+        protected override void OnStartup(object sender, StartupEventArgs e)
+        {
+            base.OnStartup(sender, e);
+
+            this.shellViewModel = this.kernel.Get<ShellViewModel>();
+            this.kernel.Get<IWindowManager>().ShowWindow(this.shellViewModel);
+            this.kernel.Get<ILifecycleController>().Activate(this.shellViewModel);
+        }
+
+        protected override void OnExit(object sender, EventArgs e)
+        {
+            this.kernel.Get<ILifecycleController>().Deactivate(this.shellViewModel);
+            base.OnExit(sender, e);
         }
 
         protected override IEnumerable<object> GetAllInstances(Type service)

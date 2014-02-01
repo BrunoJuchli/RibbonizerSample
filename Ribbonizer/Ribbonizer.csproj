@@ -183,7 +183,6 @@
     <Compile Include="ViewModel\Lifecycle\LifecycleController.cs" />
     <Compile Include="ViewModel\Lifecycle\LifecycleExtensionBuilder.cs" />
     <Compile Include="ViewModel\Lifecycle\LifecycleExtensionFactory.cs" />
-    <Compile Include="ViewModel\Lifecycle\LifecycleExtensionsModule.cs" />
     <Compile Include="ViewModel\Lifecycle\LifecycleExtensionTypeCache.cs" />
     <Compile Include="ViewModel\Lifecycle\LifecycleManager.cs" />
     <Compile Include="ViewModel\Lifecycle\LifecycleModule.cs" />

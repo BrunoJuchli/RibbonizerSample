@@ -4,6 +4,7 @@
     using Ninject.Extensions.NamedScope;
     using Ninject.Modules;
 
+    using Ribbonizer.DependencyInjection;
     using Ribbonizer.Ribbon.DefinitionValidation;
 
     public class RibbonButtonToolModule : NinjectModule
@@ -24,7 +25,7 @@
         private void BindCommands()
         {
             this.Bind(x => x
-                .FromThisAssembly()
+                .FromProductionAssemblies()
                 .IncludingNonePublicTypes()
                 .SelectAllClasses()
                 .InheritedFrom<IRibbonButtonToolCommand>()
