@@ -9,7 +9,7 @@
 
     using RibbonizerSample.Contacts;
     using RibbonizerSample.Emails;
-    using RibbonizerSample.SampleTracking;
+    using RibbonizerSample.SampleTracking.LoggingView;
 
     using Stema.Controls;
 
@@ -18,13 +18,13 @@
     {
         private readonly IFactory factory;
 
-        public ShellViewModel(IFactory factory, IViewModelActivationTrackingCollection activationTrackingCollection)
+        public ShellViewModel(IFactory factory, ActivationLoggingViewModel activationLoggingViewModel)
         {
-            this.ActivationTrackingCollection = activationTrackingCollection;
+            this.ActivationLoggingViewModel = activationLoggingViewModel;
             this.factory = factory;
         }
 
-        public IViewModelActivationTrackingCollection ActivationTrackingCollection { get; set; }
+        public ActivationLoggingViewModel ActivationLoggingViewModel { get; private set; }
 
         public IPageViewModel Page { get; private set; }
 
@@ -42,7 +42,7 @@
                         this.ChangeToPage<EmailsViewModel>();
                         break;
                     default:
-                        throw new NotImplementedException(string.Format("unsupported page '{0}'", addedItem.Header));
+                        throw new NotSupportedException(string.Format("unsupported page '{0}'", addedItem.Header));
                 }
             }
         }

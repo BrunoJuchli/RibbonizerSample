@@ -89,11 +89,18 @@
     </Compile>
     <Compile Include="Emails\EmailsViewModel.cs" />
     <Compile Include="IPageViewModel.cs" />
-    <Compile Include="SampleTracking\ActivationLoggingExtension.cs" />
-    <Compile Include="SampleTracking\ActivationLoggingExtensionProvider.cs" />
-    <Compile Include="SampleTracking\IViewModelActivationTrackingCollection.cs" />
+    <Compile Include="SampleTracking\LoggingView\ActivationLoggingView.xaml.cs">
+      <DependentUpon>ActivationLoggingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleTracking\LoggingView\ActivationLoggingViewModel.cs" />
+    <Compile Include="SampleTracking\LoggingView\ListBoxBehavior.cs" />
+    <Compile Include="SampleTracking\TreeView\ActivationTreeItem.cs" />
+    <Compile Include="SampleTracking\LoggingView\ActivationLoggingExtension.cs" />
+    <Compile Include="SampleTracking\LoggingView\ActivationLoggingExtensionProvider.cs" />
+    <Compile Include="SampleTracking\TreeView\ActivationTreeViewModel.cs" />
+    <Compile Include="SampleTracking\LoggingView\IViewModelActivationLoggingCollection.cs" />
     <Compile Include="SampleTracking\SampleTrackingModule.cs" />
-    <Compile Include="SampleTracking\ViewModelActivationTrackingCollection.cs" />
+    <Compile Include="SampleTracking\LoggingView\ViewModelActivationLoggingCollection.cs" />
     <Compile Include="ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
@@ -152,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Emails\EmailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SampleTracking\LoggingView\ActivationLoggingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
