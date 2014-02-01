@@ -1,0 +1,9 @@
+﻿<Window x:Class="RibbonizerSample.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ribbonizer Sample" Height="507" Width="808">
+    <Grid>
+        <Ribbon HorizontalAlignment="Left" VerticalAlignment="Top" Width="800"/>
+
+    </Grid>
+</Window>
