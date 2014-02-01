@@ -8,6 +8,8 @@
 
     using Ninject;
 
+    using Ribbonizer.DependencyInjection;
+
     public class Bootstrapper : Bootstrapper<ShellViewModel>
     {
         private IKernel kernel;
@@ -15,6 +17,8 @@
         protected override void Configure()
         {
             this.kernel = new StandardKernel();
+            this.kernel.Load<DependencyInjectionModule>();
+            
             this.kernel.Bind<IWindowManager>().To<WindowManager>().InSingletonScope();
 
             base.Configure();

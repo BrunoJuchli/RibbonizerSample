@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace RibbonizerSample
 {
+    using System.Windows.Controls.Ribbon;
+
+    using Caliburn.Micro;
+
+    using Ribbonizer.Ribbon;
+    using Ribbonizer.Wrappers.Microsoft;
+
     /// <summary>
     /// Interaction logic for ShellView.xaml
     /// </summary>
@@ -22,6 +17,13 @@ namespace RibbonizerSample
         public ShellView()
         {
             InitializeComponent();
+        }
+
+        private void OnLoaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            IRibbonView ribbonView = IoC.Get<IMicrosoftRibbonViewWrapperFactory>().CreateRibbonWrapper(this.Ribbon);
+
+            IoC.Get<IRibbonProviderInitialization>().Initialize(ribbonView);
         }
     }
 }

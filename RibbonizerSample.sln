@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B1EB15
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ribbonizer", "Ribbonizer\Ribbonizer.csproj", "{37F7A165-A93E-4088-8541-92EA7C380295}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ribbonizer.Wrappers.Microsoft", "Ribbonizer.Wrappers.Microsoft\Ribbonizer.Wrappers.Microsoft.csproj", "{04BAEF17-1A17-48A8-B137-C9ACF2E2C888}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{37F7A165-A93E-4088-8541-92EA7C380295}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37F7A165-A93E-4088-8541-92EA7C380295}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37F7A165-A93E-4088-8541-92EA7C380295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04BAEF17-1A17-48A8-B137-C9ACF2E2C888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04BAEF17-1A17-48A8-B137-C9ACF2E2C888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04BAEF17-1A17-48A8-B137-C9ACF2E2C888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04BAEF17-1A17-48A8-B137-C9ACF2E2C888}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

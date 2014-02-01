@@ -2,22 +2,51 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:navigation="NavigationPane" 
+        xmlns:cal="http://www.caliburnproject.org"
         Title="Ribbonizer Sample" Height="507" Width="808">
     <DockPanel>
-        <Ribbon DockPanel.Dock="Top"/>
+        <Ribbon DockPanel.Dock="Top" Name="Ribbon"/>
         <navigation:NavigationPane DockPanel.Dock="Left" 
                                    LargeItems="5" 
                                    HorizontalAlignment="Left"
-                                   Width="100">
+                                   Width="100"
+                                   cal:Message.Attach="[Event SelectionChanged] = [Action PageSelectionChanged($eventArgs)]">
             <navigation:NavigationPaneItem Name="Mail" 
                                            Header="Mail"
                                            ImageSmall="Resources/mail.ico"
-                                           Image="Resources/mail.ico"/>
+                                           Image="Resources/mail.ico"
+                                           IsSelected="False"/>
             <navigation:NavigationPaneItem Name="Contacts" 
                                            Header="Contacts"
                                            ImageSmall="Resources/contact.png"
-                                           Image="Resources/contact.png"/>
+                                           Image="Resources/contact.png"
+                                           IsSelected="False"/>
         </navigation:NavigationPane>
-        <TextBlock DockPanel.Dock="Right"/>
+        
+        <Grid DockPanel.Dock="Right">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="3"/>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <UserControl Grid.Column="0"
+                         x:Name="Page"
+                         DockPanel.Dock="Left"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch"/>
+            
+            <GridSplitter Background="DarkGray"
+                          ResizeDirection="Columns" 
+                          Grid.Column="1"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                          ResizeBehavior="PreviousAndNext" />
+            
+            <TextBlock Grid.Column="2"
+                       Text="Tracking"
+                       HorizontalAlignment="Stretch"
+                       DockPanel.Dock="Right"/>
+        </Grid>
     </DockPanel>
 </Window>

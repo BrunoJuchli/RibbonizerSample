@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <FodyPath>..\packages\Fody.1.20.0.0</FodyPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,36 +33,176 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Appccelerate.Fundamentals">
+      <HintPath>..\packages\Appccelerate.Fundamentals.2.1.0\lib\portable-windows8+net45\Appccelerate.Fundamentals.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\net45\Caliburn.Micro.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject.Extensions.Conventions">
+      <HintPath>..\packages\Ninject.Extensions.Conventions.3.0.0.11\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject.Extensions.Factory">
       <HintPath>..\packages\Ninject.Extensions.Factory.3.0.1.0\lib\net45-full\Ninject.Extensions.Factory.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject.Extensions.NamedScope">
+      <HintPath>..\packages\Ninject.Extensions.NamedScope.3.0.0.5\lib\net45-full\Ninject.Extensions.NamedScope.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PropertyChanged">
+      <HintPath>..\packages\PropertyChanged.Fody.1.45.0.0\Lib\NET35\PropertyChanged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="DependencyInjection\Factory.cs" />
+    <Compile Include="DependencyInjection\DependencyInjectionModule.cs" />
+    <Compile Include="DependencyInjection\IFactory.cs" />
+    <Compile Include="DependencyInjection\ImplementedTypesConstructorArgument.cs" />
+    <Compile Include="DependencyInjection\ITypedParameter.cs" />
+    <Compile Include="DependencyInjection\IUniqueBindingCollection.cs" />
+    <Compile Include="DependencyInjection\NinjectConventionExtensions.cs" />
+    <Compile Include="DependencyInjection\TypedConstructorArgument.cs" />
+    <Compile Include="DependencyInjection\UniqueBindingCollection.cs" />
+    <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="Media\IImageSourceFactory.cs" />
+    <Compile Include="Media\ImageSourceFactory.cs" />
+    <Compile Include="Media\MediaModule.cs" />
+    <Compile Include="ObjectExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\ReflectionExtensions.cs" />
+    <Compile Include="Reflection\Reflector{TTarget}.cs" />
+    <Compile Include="Ribbon\DefinitionValidation\IRibbonDefinitionValidator.cs" />
+    <Compile Include="Ribbon\DefinitionValidation\IRibbonDefinitionViolation.cs" />
+    <Compile Include="Ribbon\DefinitionValidation\RibbonDefinitionParentTypeValidator.cs" />
+    <Compile Include="Ribbon\DefinitionValidation\RibbonDefinitionParentTypeViolation.cs" />
+    <Compile Include="Ribbon\DefinitionValidation\RibbonDefinitionSortIndexValidator.cs" />
+    <Compile Include="Ribbon\DefinitionValidation\RibbonDefinitionSortIndexViolation.cs" />
+    <Compile Include="Ribbon\DefinitionValidation\RibbonDefinitionViolationException.cs" />
+    <Compile Include="Ribbon\GroupedDefinitionData.cs" />
+    <Compile Include="Ribbon\GroupedDefinitionProvider.cs" />
+    <Compile Include="Ribbon\Groups\IRibbonGroupDefinition.cs" />
+    <Compile Include="Ribbon\Groups\IRibbonGroupView.cs" />
+    <Compile Include="Ribbon\Groups\RibbonGroupFactory.cs" />
+    <Compile Include="Ribbon\Groups\RibbonGroupsDefinitionsConventionModule.cs" />
+    <Compile Include="Ribbon\Groups\RibbonGroupsModule.cs" />
+    <Compile Include="Ribbon\IGroupedDefinitionProvider.cs" />
+    <Compile Include="Ribbon\IRibbonChildrenViewBuilder.cs" />
+    <Compile Include="Ribbon\IRibbonDefinitionWithParentType.cs" />
+    <Compile Include="Ribbon\IRibbonInitializer.cs" />
+    <Compile Include="Ribbon\IRibbonProvider.cs" />
+    <Compile Include="Ribbon\IRibbonProviderInitialization.cs" />
+    <Compile Include="Ribbon\IRibbonView.cs" />
+    <Compile Include="Ribbon\IRibbonViewBuilder.cs" />
+    <Compile Include="Ribbon\IRibbonViewFactory.cs" />
+    <Compile Include="Ribbon\IRibbonViewWithChildren.cs" />
+    <Compile Include="Ribbon\RibbonBindingExtensions.cs" />
+    <Compile Include="Ribbon\RibbonBindingGenerator.cs" />
+    <Compile Include="Ribbon\RibbonChildrenViewBuilder.cs" />
+    <Compile Include="Ribbon\RibbonInitializationExtension.cs" />
+    <Compile Include="Ribbon\RibbonInitializer.cs" />
+    <Compile Include="Ribbon\RibbonModule.cs" />
+    <Compile Include="Ribbon\RibbonProvider.cs" />
+    <Compile Include="Ribbon\RibbonViewWithChildrenBuilder.cs" />
+    <Compile Include="Ribbon\Tabs\IRibbonTabController.cs" />
+    <Compile Include="Ribbon\Tabs\IRibbonTabDefinition.cs" />
+    <Compile Include="Ribbon\Tabs\IRibbonTabView.cs" />
+    <Compile Include="Ribbon\Tabs\IRibbonTabViewCache.cs" />
+    <Compile Include="Ribbon\Tabs\IRibbonTabViewCacheInitializer.cs" />
+    <Compile Include="Ribbon\Tabs\RibbonDefinitionShowOnActivationOfViewModelTypeIsNotClassViolation.cs" />
+    <Compile Include="Ribbon\Tabs\RibbonTabController.cs" />
+    <Compile Include="Ribbon\Tabs\RibbonTabDefinitionShowOnActivationOfViewModelTypeValidator.cs" />
+    <Compile Include="Ribbon\Tabs\RibbonTabFactory.cs" />
+    <Compile Include="Ribbon\Tabs\RibbonTabLifecycleExtension.cs" />
+    <Compile Include="Ribbon\Tabs\RibbonTabLifecycleExtensionProvider.cs" />
+    <Compile Include="Ribbon\Tabs\RibbonTabsDefinitionsConventionModule.cs" />
+    <Compile Include="Ribbon\Tabs\RibbonTabsModule.cs" />
+    <Compile Include="Ribbon\Tabs\RibbonTabViewCache.cs" />
+    <Compile Include="Ribbon\Tools\Button\IInitializableRibbonButtonToolCommand.cs" />
+    <Compile Include="Ribbon\Tools\Button\IRibbonButtonToolCommand.cs" />
+    <Compile Include="Ribbon\Tools\Button\IRibbonButtonToolCommandAdapter.cs" />
+    <Compile Include="Ribbon\Tools\Button\IRibbonButtonToolDefinition.cs" />
+    <Compile Include="Ribbon\Tools\Button\IRibbonButtonToolView.cs" />
+    <Compile Include="Ribbon\Tools\Button\RibbonButtonDefinitionWireOnActivationOfViewModelTypeValidator.cs" />
+    <Compile Include="Ribbon\Tools\Button\RibbonButtonToolCommandAdapter.cs" />
+    <Compile Include="Ribbon\Tools\Button\RibbonButtonToolCommandDefinition.cs" />
+    <Compile Include="Ribbon\Tools\Button\RibbonButtonToolController.cs" />
+    <Compile Include="Ribbon\Tools\Button\RibbonButtonToolModule.cs" />
+    <Compile Include="Ribbon\Tools\Button\RibbonButtonToolViewInitializer.cs" />
+    <Compile Include="Ribbon\Tools\Button\RibbonDefinitionDuplicatedCommandsViolation.cs" />
+    <Compile Include="Ribbon\Tools\IRibbonToolController.cs" />
+    <Compile Include="Ribbon\Tools\IRibbonToolControllerCache.cs" />
+    <Compile Include="Ribbon\Tools\IRibbonToolControllerFactory.cs" />
+    <Compile Include="Ribbon\Tools\IRibbonToolDefinition.cs" />
+    <Compile Include="Ribbon\Tools\IRibbonToolFactory.cs" />
+    <Compile Include="Ribbon\Tools\IRibbonToolViewInitializer.cs" />
+    <Compile Include="Ribbon\Tools\IRibbonToolWireOnActivationDefinition.cs" />
+    <Compile Include="Ribbon\Tools\IRibbonToolWiringFactory.cs" />
+    <Compile Include="Ribbon\Tools\RibbonDefinitionWireOnActivationOfViewModelTypeIsNotClassViolation.cs" />
+    <Compile Include="Ribbon\Tools\RibbonDefinitionWireOnActivationOfViewModelTypeValidator.cs" />
+    <Compile Include="Ribbon\Tools\RibbonToolBuilder.cs" />
+    <Compile Include="Ribbon\Tools\RibbonToolControllerCache.cs" />
+    <Compile Include="Ribbon\Tools\RibbonToolControllerFactory.cs" />
+    <Compile Include="Ribbon\Tools\RibbonToolDefinitionsConventionModule.cs" />
+    <Compile Include="Ribbon\Tools\RibbonToolFactory.cs" />
+    <Compile Include="Ribbon\Tools\RibbonToolLifecycleExtension.cs" />
+    <Compile Include="Ribbon\Tools\RibbonToolLifecycleExtensionProvider.cs" />
+    <Compile Include="Ribbon\Tools\RibbonToolsModule.cs" />
+    <Compile Include="Ribbon\Tools\RibbonToolWiringFactory.cs" />
+    <Compile Include="Ribbon\Wrapping\IRibbonViewWrapperFactory.cs" />
+    <Compile Include="Ribbon\Wrapping\RibbonViewWrappingModule.cs" />
+    <Compile Include="ViewModel\Lifecycle\Activatable\ActivatableConductor.cs" />
+    <Compile Include="ViewModel\Lifecycle\Activatable\ActivatableConductorProvider.cs" />
+    <Compile Include="ViewModel\Lifecycle\Activatable\DeactivatableConductor.cs" />
+    <Compile Include="ViewModel\Lifecycle\Activatable\DeactivatableConductorProvider.cs" />
+    <Compile Include="ViewModel\Lifecycle\Activatable\IActivatable.cs" />
+    <Compile Include="ViewModel\Lifecycle\Activatable\IDeactivatable.cs" />
+    <Compile Include="ViewModel\Lifecycle\ChildrenConductor.cs" />
+    <Compile Include="ViewModel\Lifecycle\ILifecycleController.cs" />
+    <Compile Include="ViewModel\Lifecycle\ILifecycleExtension.cs" />
+    <Compile Include="ViewModel\Lifecycle\ILifecycleExtensionBuilder.cs" />
+    <Compile Include="ViewModel\Lifecycle\ILifecycleExtensionFactory.cs" />
+    <Compile Include="ViewModel\Lifecycle\ILifecycleExtensionProvider.cs" />
+    <Compile Include="ViewModel\Lifecycle\ILifecycleExtensionTypeCache.cs" />
+    <Compile Include="ViewModel\Lifecycle\ILifecycleManager.cs" />
+    <Compile Include="ViewModel\Lifecycle\ILifecycleManagerFactory.cs" />
+    <Compile Include="ViewModel\Lifecycle\LifecycleController.cs" />
+    <Compile Include="ViewModel\Lifecycle\LifecycleExtensionBuilder.cs" />
+    <Compile Include="ViewModel\Lifecycle\LifecycleExtensionFactory.cs" />
+    <Compile Include="ViewModel\Lifecycle\LifecycleExtensionsModule.cs" />
+    <Compile Include="ViewModel\Lifecycle\LifecycleExtensionTypeCache.cs" />
+    <Compile Include="ViewModel\Lifecycle\LifecycleManager.cs" />
+    <Compile Include="ViewModel\Lifecycle\LifecycleModule.cs" />
+    <Compile Include="ViewModel\Lifecycle\ChildrenConductorProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Ribbon\" />
-    <Folder Include="ViewModelActivation\" />
+    <Content Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Fody.targets" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="Fody.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
