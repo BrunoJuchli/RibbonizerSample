@@ -87,6 +87,7 @@
     <Compile Include="DependencyInjection\TypedConstructorArgument.cs" />
     <Compile Include="DependencyInjection\UniqueBindingCollection.cs" />
     <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="EventHandlerExtensions.cs" />
     <Compile Include="Media\IImageSourceFactory.cs" />
     <Compile Include="Media\ImageSourceFactory.cs" />
     <Compile Include="Media\MediaModule.cs" />
@@ -95,6 +96,9 @@
     <Compile Include="Reflection\ReflectionExtensions.cs" />
     <Compile Include="Reflection\Reflector{TTarget}.cs" />
     <Compile Include="ResourceLoader.cs" />
+    <Compile Include="Results\AbstractResult.cs" />
+    <Compile Include="Results\AnonymousResult.cs" />
+    <Compile Include="Results\IAnonymousResult.cs" />
     <Compile Include="Ribbon\DefinitionValidation\IRibbonDefinitionValidator.cs" />
     <Compile Include="Ribbon\DefinitionValidation\IRibbonDefinitionViolation.cs" />
     <Compile Include="Ribbon\DefinitionValidation\RibbonDefinitionParentTypeValidator.cs" />

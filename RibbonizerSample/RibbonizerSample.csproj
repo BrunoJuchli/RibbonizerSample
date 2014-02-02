@@ -90,7 +90,13 @@
     </Compile>
     <Compile Include="Contacts\ContactsViewModel.cs" />
     <Compile Include="Contacts\ContactViewModel.cs" />
+    <Compile Include="Contacts\CreateContactCommand.cs" />
+    <Compile Include="Contacts\DeleteContactRibbonButtonDefinition.cs" />
     <Compile Include="Contacts\CreateContactRibbonButtonDefinition.cs" />
+    <Compile Include="Emails\CreateEmailCommand.cs" />
+    <Compile Include="Emails\DeleteEmailRibbonButtonDefinition.cs" />
+    <Compile Include="Emails\EmailRibbonGroupDefinition.cs" />
+    <Compile Include="Emails\CreateEmailRibbonButtonDefinition.cs" />
     <Compile Include="Emails\EmailsRibbonTabDefinition.cs" />
     <Compile Include="Emails\EmailsView.xaml.cs">
       <DependentUpon>EmailsView.xaml</DependentUpon>
@@ -187,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Contacts\CreateContact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Emails\CreateEmail.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

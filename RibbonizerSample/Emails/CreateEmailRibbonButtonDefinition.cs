@@ -1,15 +1,15 @@
-﻿namespace RibbonizerSample.Contacts
+﻿namespace RibbonizerSample.Emails
 {
     using System;
 
     using Ribbonizer;
     using Ribbonizer.Ribbon.Tools.Button;
 
-    public class CreateContactRibbonButtonDefinition : IRibbonButtonToolDefinition
+    public class CreateEmailRibbonButtonDefinition : IRibbonButtonToolDefinition
     {
         public Type ParentType
         {
-            get { return typeof(ContactsRibbonGroupDefinition); }
+            get { return typeof(EmailRibbonGroupDefinition); }
         }
 
         public int SortIndex
@@ -19,27 +19,27 @@
 
         public string Caption
         {
-            get { return "New Contact"; }
+            get { return "New E-Mail"; }
         }
 
         public string ToolTip
         {
-            get { return "Create new Contact"; }
+            get { return "Create new E-Mail"; }
         }
 
         public Uri LargeImage
         {
-            get { return ResourceLoader.BuildUri<CreateContactRibbonButtonDefinition>("CreateContact.png"); }
+            get { return ResourceLoader.BuildUri<CreateEmailRibbonButtonDefinition>("CreateEmail.ico"); }
         }
 
         public Type WireOnActivationOfViewModelType
         {
-            get { return typeof(ContactsViewModel); }
+            get { return typeof(EmailsViewModel); }
         }
 
         public Type CommandType
         {
-            get { return typeof(CreateContactCommand); }
+            get { return typeof(CreateEmailCommand); }
         }
     }
 }

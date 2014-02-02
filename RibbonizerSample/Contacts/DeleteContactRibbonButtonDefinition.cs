@@ -5,7 +5,7 @@
     using Ribbonizer;
     using Ribbonizer.Ribbon.Tools.Button;
 
-    public class CreateContactRibbonButtonDefinition : IRibbonButtonToolDefinition
+    public class DeleteContactRibbonButtonDefinition : IRibbonButtonToolDefinition
     {
         public Type ParentType
         {
@@ -14,17 +14,17 @@
 
         public int SortIndex
         {
-            get { return 0; }
+            get { return 1; }
         }
 
         public string Caption
         {
-            get { return "New Contact"; }
+            get { return "Delete Contact"; }
         }
 
         public string ToolTip
         {
-            get { return "Create new Contact"; }
+            get { return "Delete Contact"; }
         }
 
         public Uri LargeImage
@@ -34,12 +34,12 @@
 
         public Type WireOnActivationOfViewModelType
         {
-            get { return typeof(ContactsViewModel); }
+            get { return typeof(CreateContactRibbonButtonDefinition); }
         }
 
         public Type CommandType
         {
-            get { return typeof(CreateContactCommand); }
+            get { return null; }
         }
     }
 }

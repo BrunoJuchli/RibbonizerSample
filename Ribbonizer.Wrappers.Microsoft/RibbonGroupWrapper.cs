@@ -23,8 +23,8 @@ namespace Ribbonizer.Wrappers.Microsoft
 
         public string Caption
         {
-            get { return this.ribbonGroup.Name; }
-            set { this.ribbonGroup.Name = value; }
+            get { return (string)this.ribbonGroup.Header; }
+            set { this.ribbonGroup.Header = value; }
         }
 
         public void AddItem(object item)
