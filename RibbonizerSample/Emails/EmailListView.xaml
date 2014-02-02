@@ -9,7 +9,8 @@
     <ListBox HorizontalAlignment="Stretch"
              VerticalAlignment="Stretch"
              ItemsSource="{Binding Path=Emails}"
-             SelectedItem="{Binding Path=SelectedItem}">
+             cal:Message.Attach="[Event SelectionChanged] = [Action HandleSelectionChanged($eventArgs)]"
+             SelectionMode="Extended">
         <ListBox.ItemTemplate>
             <DataTemplate>
                 <StackPanel Orientation="Horizontal">

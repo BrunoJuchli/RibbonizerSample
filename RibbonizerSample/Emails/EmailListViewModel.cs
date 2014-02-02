@@ -1,6 +1,8 @@
 ﻿namespace RibbonizerSample.Emails
 {
     using System;
+    using System.Linq;
+    using System.Windows.Controls;
 
     using Caliburn.Micro;
 
@@ -40,11 +42,19 @@
                                           Received = now.Subtract(TimeSpan.FromDays(2))
                                       }
                               };
+
+            this.SelectedItems = new BindableCollection<EmailViewModel>();
         }
 
         public IObservableCollection<EmailViewModel> Emails { get; private set; }
 
-        public EmailViewModel SelectedItem { get; set; }
+        public IObservableCollection<EmailViewModel> SelectedItems { get; private set; }
+
+        public void HandleSelectionChanged(SelectionChangedEventArgs eventArgs)
+        {
+            this.SelectedItems.RemoveRange(eventArgs.RemovedItems.OfType<EmailViewModel>());
+            this.SelectedItems.AddRange(eventArgs.AddedItems.OfType<EmailViewModel>());
+        }
 
         public override string ToString()
         {

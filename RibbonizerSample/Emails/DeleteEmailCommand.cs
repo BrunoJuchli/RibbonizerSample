@@ -1,30 +1,37 @@
 ﻿namespace RibbonizerSample.Emails
 {
+    using System;
     using System.Collections.Generic;
-    using System.Windows;
+    using System.Linq;
 
     using Caliburn.Micro;
-
     using Ribbonizer.Results;
     using Ribbonizer.Ribbon.Tools.Button;
 
-    internal class DeleteEmailCommand : IRibbonButtonToolCommand
+    internal class DeleteEmailCommand : PropertyChangedBase, IRibbonButtonToolCommand
     {
-        private readonly EmailViewModel viewModel;
+        private readonly EmailListViewModel viewModel;
 
-        public DeleteEmailCommand(EmailViewModel viewModel)
+        public DeleteEmailCommand(EmailListViewModel viewModel)
         {
             this.viewModel = viewModel;
+            this.viewModel.SelectedItems.CollectionChanged += this.HandleCollectionChanged;
         }
 
         public bool CanExecute
         {
-            get { return true; }
+            get { return this.viewModel.SelectedItems.Any(); }
         }
 
         public IEnumerable<IResult> Execute()
         {
-            yield return new AnonymousResult(() => MessageBox.Show(string.Format("deleting '{0}'", this.viewModel.Subject)));
+            var toDelete = this.viewModel.SelectedItems.ToList();
+            yield return new AnonymousResult(() => this.viewModel.Emails.RemoveRange(toDelete));
+        }
+
+        private void HandleCollectionChanged(object sender, EventArgs e)
+        {
+            this.NotifyOfPropertyChange(() => this.CanExecute);
         }
     }
 }
