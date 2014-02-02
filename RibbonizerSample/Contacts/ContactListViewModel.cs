@@ -46,6 +46,8 @@
 
         public IObservableCollection<ContactViewModel> Contacts { get; private set; }
 
+        public ContactViewModel SelectedItem { get; set; }
+
         public override string ToString()
         {
             return this.GetType().Name;

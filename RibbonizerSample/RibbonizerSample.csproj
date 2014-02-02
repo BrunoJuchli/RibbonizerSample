@@ -93,6 +93,7 @@
     <Compile Include="Contacts\CreateContactCommand.cs" />
     <Compile Include="Contacts\DeleteContactRibbonButtonDefinition.cs" />
     <Compile Include="Contacts\CreateContactRibbonButtonDefinition.cs" />
+    <Compile Include="Contacts\DeleteContactCommand.cs" />
     <Compile Include="Emails\DeleteEmailCommand.cs" />
     <Compile Include="Emails\CreateEmailCommand.cs" />
     <Compile Include="Emails\DeleteEmailRibbonButtonDefinition.cs" />

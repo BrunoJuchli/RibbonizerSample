@@ -5,15 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <ItemsControl ItemsSource="{Binding Path=Contacts}"
-                  HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch">
-        <ItemsControl.ItemsPanel>
+    <ListBox 
+        HorizontalContentAlignment="Stretch" 
+        VerticalAlignment="Stretch"
+        ItemsSource="{Binding Path=Contacts}"
+        SelectedItem="{Binding Path=SelectedItem}">
+
+        <ListBox.Resources>
+            <!-- Set SelectedItem Background here -->
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Yellow"/>
+        </ListBox.Resources>
+
+        <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
-                <UniformGrid  />
+                <UniformGrid/>
             </ItemsPanelTemplate>
-        </ItemsControl.ItemsPanel>
-        <ItemsControl.ItemTemplate>
+        </ListBox.ItemsPanel>
+
+        <ListBox.ItemTemplate>
             <DataTemplate>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -35,6 +44,6 @@
 
                 </Grid>
             </DataTemplate>
-        </ItemsControl.ItemTemplate>
-    </ItemsControl>
+        </ListBox.ItemTemplate>
+    </ListBox>
 </UserControl>

@@ -34,12 +34,12 @@
 
         public Type WireOnActivationOfViewModelType
         {
-            get { return typeof(CreateContactRibbonButtonDefinition); }
+            get { return typeof(ContactViewModel); }
         }
 
         public Type CommandType
         {
-            get { return null; }
+            get { return typeof(DeleteContactCommand); }
         }
     }
 }
