@@ -13,7 +13,7 @@
 
         public Type ShowOnActivationOfViewModelType
         {
-            get { return typeof(EmailsViewModel); }
+            get { return typeof(EmailListViewModel); }
         }
     }
 }

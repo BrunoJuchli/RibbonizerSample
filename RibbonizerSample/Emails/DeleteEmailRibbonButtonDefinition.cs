@@ -34,12 +34,12 @@
 
         public Type WireOnActivationOfViewModelType
         {
-            get { return typeof(CreateEmailRibbonButtonDefinition); }
+            get { return typeof(EmailViewModel); }
         }
 
         public Type CommandType
         {
-            get { return null; }
+            get { return typeof(DeleteEmailCommand); }
         }
     }
 }

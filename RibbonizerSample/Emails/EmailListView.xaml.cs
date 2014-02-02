@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RibbonizerSample.Emails
 {
     /// <summary>
-    /// Interaction logic for EmailsView.xaml
+    /// Interaction logic for EmailListView.xaml
     /// </summary>
-    public partial class EmailsView : UserControl
+    public partial class EmailListView : UserControl
     {
-        public EmailsView()
+        public EmailListView()
         {
             InitializeComponent();
         }

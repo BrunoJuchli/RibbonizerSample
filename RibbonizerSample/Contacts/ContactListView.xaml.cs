@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RibbonizerSample.Contacts
 {
     /// <summary>
-    /// Interaction logic for ContactsView.xaml
+    /// Interaction logic for ContactListView.xaml
     /// </summary>
-    public partial class ContactsView : UserControl
+    public partial class ContactListView : UserControl
     {
-        public ContactsView()
+        public ContactListView()
         {
             InitializeComponent();
         }

@@ -34,7 +34,7 @@
 
         public Type WireOnActivationOfViewModelType
         {
-            get { return typeof(ContactsViewModel); }
+            get { return typeof(ContactListViewModel); }
         }
 
         public Type CommandType

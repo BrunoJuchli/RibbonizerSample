@@ -36,10 +36,10 @@
                 switch ((string)addedItem.Header)
                 {
                     case "Contacts":
-                        this.ChangeToPage<ContactsViewModel>();
+                        this.ChangeToPage<ContactListViewModel>();
                         break;
                     case "Mail":
-                        this.ChangeToPage<EmailsViewModel>();
+                        this.ChangeToPage<EmailListViewModel>();
                         break;
                     default:
                         throw new NotSupportedException(string.Format("unsupported page '{0}'", addedItem.Header));

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Windows;
 
     using Caliburn.Micro;
 
@@ -17,7 +18,7 @@
 
         public IEnumerable<IResult> Execute()
         {
-            yield return new AnonymousResult(() => Console.WriteLine("Creating Contact"));
+            yield return new AnonymousResult(() => MessageBox.Show("Creating Contact"));
         }
     }
 }

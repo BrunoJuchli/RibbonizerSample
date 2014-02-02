@@ -34,7 +34,7 @@
 
         public Type WireOnActivationOfViewModelType
         {
-            get { return typeof(EmailsViewModel); }
+            get { return typeof(EmailListViewModel); }
         }
 
         public Type CommandType

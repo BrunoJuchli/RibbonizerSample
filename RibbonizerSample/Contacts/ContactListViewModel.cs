@@ -5,9 +5,9 @@
     using PropertyChanged;
 
     [ImplementPropertyChanged]
-    public class ContactsViewModel : IPageViewModel
+    public class ContactListViewModel : IPageViewModel
     {
-        public ContactsViewModel()
+        public ContactListViewModel()
         {
             this.Contacts = new BindableCollection<ContactViewModel>
                                 {

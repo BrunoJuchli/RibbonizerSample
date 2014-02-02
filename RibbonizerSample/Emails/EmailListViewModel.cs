@@ -7,9 +7,9 @@
     using PropertyChanged;
 
     [ImplementPropertyChanged]
-    public class EmailsViewModel : IPageViewModel
+    public class EmailListViewModel : IPageViewModel
     {
-        public EmailsViewModel()
+        public EmailListViewModel()
         {
             var now = DateTimeOffset.Now;
 
@@ -43,6 +43,8 @@
         }
 
         public IObservableCollection<EmailViewModel> Emails { get; private set; }
+
+        public EmailViewModel SelectedItem { get; set; }
 
         public override string ToString()
         {

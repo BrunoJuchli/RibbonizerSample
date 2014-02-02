@@ -1,6 +1,5 @@
 ﻿namespace RibbonizerSample.Emails
 {
-    using System;
     using System.Collections.Generic;
     using System.Windows;
 
@@ -9,8 +8,15 @@
     using Ribbonizer.Results;
     using Ribbonizer.Ribbon.Tools.Button;
 
-    internal class CreateEmailCommand : IRibbonButtonToolCommand
+    internal class DeleteEmailCommand : IRibbonButtonToolCommand
     {
+        private readonly EmailViewModel viewModel;
+
+        public DeleteEmailCommand(EmailViewModel viewModel)
+        {
+            this.viewModel = viewModel;
+        }
+
         public bool CanExecute
         {
             get { return true; }
@@ -18,7 +24,7 @@
 
         public IEnumerable<IResult> Execute()
         {
-            yield return new AnonymousResult(() => MessageBox.Show("Creating E-Mail"));
+            yield return new AnonymousResult(() => MessageBox.Show(string.Format("deleting '{0}'", this.viewModel.Subject)));
         }
     }
 }

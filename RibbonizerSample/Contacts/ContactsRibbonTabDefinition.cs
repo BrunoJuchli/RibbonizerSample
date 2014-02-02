@@ -13,7 +13,7 @@
 
         public Type ShowOnActivationOfViewModelType
         {
-            get { return typeof(ContactsViewModel); }
+            get { return typeof(ContactListViewModel); }
         }
     }
 }

@@ -85,23 +85,24 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Contacts\ContactsRibbonGroupDefinition.cs" />
     <Compile Include="Contacts\ContactsRibbonTabDefinition.cs" />
-    <Compile Include="Contacts\ContactsView.xaml.cs">
-      <DependentUpon>ContactsView.xaml</DependentUpon>
+    <Compile Include="Contacts\ContactListView.xaml.cs">
+      <DependentUpon>ContactListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Contacts\ContactsViewModel.cs" />
+    <Compile Include="Contacts\ContactListViewModel.cs" />
     <Compile Include="Contacts\ContactViewModel.cs" />
     <Compile Include="Contacts\CreateContactCommand.cs" />
     <Compile Include="Contacts\DeleteContactRibbonButtonDefinition.cs" />
     <Compile Include="Contacts\CreateContactRibbonButtonDefinition.cs" />
+    <Compile Include="Emails\DeleteEmailCommand.cs" />
     <Compile Include="Emails\CreateEmailCommand.cs" />
     <Compile Include="Emails\DeleteEmailRibbonButtonDefinition.cs" />
     <Compile Include="Emails\EmailRibbonGroupDefinition.cs" />
     <Compile Include="Emails\CreateEmailRibbonButtonDefinition.cs" />
     <Compile Include="Emails\EmailsRibbonTabDefinition.cs" />
-    <Compile Include="Emails\EmailsView.xaml.cs">
-      <DependentUpon>EmailsView.xaml</DependentUpon>
+    <Compile Include="Emails\EmailListView.xaml.cs">
+      <DependentUpon>EmailListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Emails\EmailsViewModel.cs" />
+    <Compile Include="Emails\EmailListViewModel.cs" />
     <Compile Include="Emails\EmailViewModel.cs" />
     <Compile Include="IPageViewModel.cs" />
     <Compile Include="SampleTracking\ActivationLoggingView.xaml.cs">
@@ -167,11 +168,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Contacts\ContactsView.xaml">
+    <Page Include="Contacts\ContactListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Emails\EmailsView.xaml">
+    <Page Include="Emails\EmailListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
