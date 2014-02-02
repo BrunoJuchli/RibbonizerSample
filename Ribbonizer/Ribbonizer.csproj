@@ -45,6 +45,9 @@
     <Reference Include="Ninject">
       <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject.Extensions.ContextPreservation">
+      <HintPath>..\packages\Ninject.Extensions.ContextPreservation.3.0.0.8\lib\net45-full\Ninject.Extensions.ContextPreservation.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject.Extensions.Conventions">
       <HintPath>..\packages\Ninject.Extensions.Conventions.3.0.0.11\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
     </Reference>
@@ -91,6 +94,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflection\ReflectionExtensions.cs" />
     <Compile Include="Reflection\Reflector{TTarget}.cs" />
+    <Compile Include="ResourceLoader.cs" />
     <Compile Include="Ribbon\DefinitionValidation\IRibbonDefinitionValidator.cs" />
     <Compile Include="Ribbon\DefinitionValidation\IRibbonDefinitionViolation.cs" />
     <Compile Include="Ribbon\DefinitionValidation\RibbonDefinitionParentTypeValidator.cs" />
@@ -141,18 +145,15 @@
     <Compile Include="Ribbon\Tools\Button\IRibbonButtonToolView.cs" />
     <Compile Include="Ribbon\Tools\Button\RibbonButtonDefinitionWireOnActivationOfViewModelTypeValidator.cs" />
     <Compile Include="Ribbon\Tools\Button\RibbonButtonToolCommandAdapter.cs" />
-    <Compile Include="Ribbon\Tools\Button\RibbonButtonToolCommandDefinition.cs" />
     <Compile Include="Ribbon\Tools\Button\RibbonButtonToolController.cs" />
     <Compile Include="Ribbon\Tools\Button\RibbonButtonToolModule.cs" />
     <Compile Include="Ribbon\Tools\Button\RibbonButtonToolViewInitializer.cs" />
-    <Compile Include="Ribbon\Tools\Button\RibbonDefinitionDuplicatedCommandsViolation.cs" />
     <Compile Include="Ribbon\Tools\IRibbonToolController.cs" />
     <Compile Include="Ribbon\Tools\IRibbonToolControllerCache.cs" />
     <Compile Include="Ribbon\Tools\IRibbonToolControllerFactory.cs" />
     <Compile Include="Ribbon\Tools\IRibbonToolDefinition.cs" />
     <Compile Include="Ribbon\Tools\IRibbonToolFactory.cs" />
     <Compile Include="Ribbon\Tools\IRibbonToolViewInitializer.cs" />
-    <Compile Include="Ribbon\Tools\IRibbonToolWireOnActivationDefinition.cs" />
     <Compile Include="Ribbon\Tools\IRibbonToolWiringFactory.cs" />
     <Compile Include="Ribbon\Tools\RibbonDefinitionWireOnActivationOfViewModelTypeIsNotClassViolation.cs" />
     <Compile Include="Ribbon\Tools\RibbonDefinitionWireOnActivationOfViewModelTypeValidator.cs" />

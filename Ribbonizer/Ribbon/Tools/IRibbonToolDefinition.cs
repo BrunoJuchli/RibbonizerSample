@@ -1,6 +1,9 @@
 ﻿namespace Ribbonizer.Ribbon.Tools
 {
-    internal interface IRibbonToolDefinition : IRibbonDefinitionWithParentType
+    using System;
+
+    public interface IRibbonToolDefinition : IRibbonDefinitionWithParentType
     {
+        Type WireOnActivationOfViewModelType { get; }
     }
 }

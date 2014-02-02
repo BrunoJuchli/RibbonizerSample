@@ -1,9 +1,5 @@
 ﻿namespace Ribbonizer.Ribbon.Tools.Button
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-
     internal class RibbonButtonToolController : IRibbonToolController<IRibbonButtonToolDefinition>
     {
         private readonly IRibbonButtonToolDefinition definition;
@@ -17,18 +13,9 @@
             this.wiringFactory = wiringFactory;
         }
 
-        public IEnumerable<Type> WireOn
-        {
-            get
-            {
-                return this.definition.CommandDefinitions.Select(x => x.WireOnActivationOfViewModelType);
-            }
-        }
-
         public void WireTo(object viewModel)
         {
-            RibbonButtonToolCommandDefinition commandDefinition = this.definition.CommandDefinitions.Single(x => x.WireOnActivationOfViewModelType == viewModel.GetType());
-            var command = this.wiringFactory.Create<IRibbonButtonToolCommand>(commandDefinition.CommandType, viewModel);
+            var command = this.wiringFactory.Create<IRibbonButtonToolCommand>(this.definition.CommandType, viewModel);
             this.adapter.BindCommand(command, viewModel);
         }
 

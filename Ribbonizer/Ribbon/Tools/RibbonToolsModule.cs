@@ -33,7 +33,7 @@
 
         private void BindDefinitionValidators()
         {
-            this.Bind<IRibbonDefinitionValidator>().To<RibbonDefinitionWireOnActivationOfViewModelTypeValidator<IRibbonToolWireOnActivationDefinition>>();
+            this.Bind<IRibbonDefinitionValidator>().To<RibbonDefinitionWireOnActivationOfViewModelTypeValidator<IRibbonToolDefinition>>();
             this.Bind<IRibbonDefinitionValidator>().To<RibbonDefinitionParentTypeValidator<IRibbonToolDefinition, IRibbonGroupDefinition>>();
             this.Bind<IRibbonDefinitionValidator>().To<RibbonDefinitionSortIndexValidator<IRibbonToolDefinition>>();
         }

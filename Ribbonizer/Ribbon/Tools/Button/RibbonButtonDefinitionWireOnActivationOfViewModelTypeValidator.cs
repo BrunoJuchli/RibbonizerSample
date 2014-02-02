@@ -21,24 +21,9 @@
 
         private IEnumerable<IRibbonDefinitionViolation> CheckDefinition()
         {
-            foreach (var definition in this.definitions)
-            {
-                foreach (var commandDefinition in definition.CommandDefinitions)
-                {
-                    if (!commandDefinition.WireOnActivationOfViewModelType.IsClass)
-                    {
-                        yield return new RibbonDefinitionWireOnActivationOfViewModelTypeIsNotClassViolation(definition, commandDefinition.WireOnActivationOfViewModelType);
-                    }
-                }
-
-                bool commandTypeDuplicated = definition.CommandDefinitions.GroupBy(x => x.CommandType).Any(x => x.Count() > 1);
-                bool viewModelDuplicated = definition.CommandDefinitions.GroupBy(x => x.WireOnActivationOfViewModelType).Any(x => x.Count() > 1);
-
-                if (commandTypeDuplicated || viewModelDuplicated)
-                {
-                    yield return new RibbonDefinitionDuplicatedCommandsViolation(definition);
-                }
-            }
+            return this.definitions
+                .Where(x => !x.WireOnActivationOfViewModelType.IsClass)
+                .Select(x => new RibbonDefinitionWireOnActivationOfViewModelTypeIsNotClassViolation(x, x.WireOnActivationOfViewModelType));
         }
     }
 }

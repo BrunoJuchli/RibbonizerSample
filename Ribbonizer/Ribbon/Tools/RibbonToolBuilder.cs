@@ -41,9 +41,8 @@
 
         private static IEnumerable<Type> BuildIgnoredInterfaces()
         {
-            var baseInterface = typeof(IRibbonToolDefinition);
-            var wireInterface = typeof(IRibbonToolWireOnActivationDefinition);
-            return new[] { baseInterface, wireInterface }
+            Type baseInterface = typeof(IRibbonToolDefinition);
+            return new[] { baseInterface }
                 .Concat(baseInterface.GetInterfaces());
         }
     }

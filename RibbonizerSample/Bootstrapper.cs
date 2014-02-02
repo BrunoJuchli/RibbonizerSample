@@ -10,6 +10,7 @@
     using Ninject;
 
     using Ribbonizer.DependencyInjection;
+    using Ribbonizer.Media;
     using Ribbonizer.Ribbon;
     using Ribbonizer.ViewModel.Lifecycle;
     using Ribbonizer.Wrappers.Microsoft;
@@ -34,6 +35,7 @@
             this.kernel.Load<LifecycleModule>();
             this.kernel.Load<RibbonModule>();
             this.kernel.Load<MicrosoftRibbonWrappersModule>();
+            this.kernel.Load<MediaModule>();
             this.kernel.Load<SampleTrackingModule>();
             
             this.kernel.Bind<IWindowManager>().To<WindowManager>().InSingletonScope();

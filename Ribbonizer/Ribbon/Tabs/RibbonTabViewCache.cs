@@ -24,7 +24,7 @@
         {
             foreach (var tabDefinition in this.tabDefinitions)
             {
-                this.BuildContextualTab(tabDefinition);
+                this.BuildTab(tabDefinition);
             }
         }
 
@@ -38,7 +38,7 @@
             return Enumerable.Empty<IRibbonTabView>();
         }
 
-        private void BuildContextualTab(IRibbonTabDefinition tabDefinition)
+        private void BuildTab(IRibbonTabDefinition tabDefinition)
         {
             IRibbonTabView ribbonTabView = this.tabBuilder.Build(tabDefinition);
 

@@ -24,8 +24,8 @@
 
         public string Caption
         {
-            get { return this.buttonTool.Name; }
-            set { this.buttonTool.Name = value; }
+            get { return this.buttonTool.Label; }
+            set { this.buttonTool.Label = value; }
         }
 
         public ImageSource LargeImage

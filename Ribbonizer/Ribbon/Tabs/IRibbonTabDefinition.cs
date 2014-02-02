@@ -2,7 +2,7 @@
 {
     using System;
 
-    internal interface IRibbonTabDefinition
+    public interface IRibbonTabDefinition
     {
         string Header { get; }
 

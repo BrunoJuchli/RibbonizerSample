@@ -6,7 +6,7 @@
     using Ribbonizer.Ribbon.DefinitionValidation;
 
     internal class RibbonDefinitionWireOnActivationOfViewModelTypeValidator<TDefinition> : IRibbonDefinitionValidator
-        where TDefinition : IRibbonToolWireOnActivationDefinition
+        where TDefinition : IRibbonToolDefinition
     {
         private readonly IEnumerable<TDefinition> definitions;
 

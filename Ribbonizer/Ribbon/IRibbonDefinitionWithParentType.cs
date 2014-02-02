@@ -2,7 +2,7 @@
 {
     using System;
 
-    internal interface IRibbonDefinitionWithParentType
+    public interface IRibbonDefinitionWithParentType
     {
         /// <summary>
         /// This references to the parent type.
