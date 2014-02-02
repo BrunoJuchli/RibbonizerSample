@@ -1,4 +1,4 @@
-﻿namespace RibbonizerSample.SampleTracking.LoggingView
+﻿namespace RibbonizerSample.SampleTracking
 {
     using System;
 

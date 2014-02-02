@@ -1,4 +1,4 @@
-﻿namespace RibbonizerSample.SampleTracking.LoggingView
+﻿namespace RibbonizerSample.SampleTracking
 {
     using System;
     using System.Collections.Generic;
@@ -75,11 +75,11 @@
             public Capture(ListBox listBox)
             {
                 this.listBox = listBox;
-                incc = listBox.ItemsSource as INotifyCollectionChanged;
-                if (incc != null)
+                this.incc = listBox.ItemsSource as INotifyCollectionChanged;
+                if (this.incc != null)
                 {
-                    incc.CollectionChanged +=
-                        new NotifyCollectionChangedEventHandler(incc_CollectionChanged);
+                    this.incc.CollectionChanged +=
+                        new NotifyCollectionChangedEventHandler(this.incc_CollectionChanged);
                 }
             }
 
@@ -87,15 +87,15 @@
             {
                 if (e.Action == NotifyCollectionChangedAction.Add)
                 {
-                    listBox.ScrollIntoView(e.NewItems[0]);
-                    listBox.SelectedItem = e.NewItems[0];
+                    this.listBox.ScrollIntoView(e.NewItems[0]);
+                    this.listBox.SelectedItem = e.NewItems[0];
                 }
             }
 
             public void Dispose()
             {
-                if (incc != null)
-                    incc.CollectionChanged -= incc_CollectionChanged;
+                if (this.incc != null)
+                    this.incc.CollectionChanged -= this.incc_CollectionChanged;
             }
         }
     }

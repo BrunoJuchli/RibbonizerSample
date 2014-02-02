@@ -9,7 +9,7 @@
 
     using RibbonizerSample.Contacts;
     using RibbonizerSample.Emails;
-    using RibbonizerSample.SampleTracking.LoggingView;
+    using RibbonizerSample.SampleTracking;
 
     using Stema.Controls;
 
