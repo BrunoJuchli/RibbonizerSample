@@ -14,7 +14,8 @@
     using Ribbonizer.Ribbon;
     using Ribbonizer.ViewModel.Lifecycle;
     using Ribbonizer.Wrappers.Microsoft;
-
+    using RibbonizerSample.Contacts;
+    using RibbonizerSample.Emails;
     using RibbonizerSample.SampleTracking;
 
     public class Bootstrapper : BootstrapperBase
@@ -37,6 +38,9 @@
             this.kernel.Load<MicrosoftRibbonWrappersModule>();
             this.kernel.Load<MediaModule>();
             this.kernel.Load<SampleTrackingModule>();
+
+            this.kernel.Load<EmailModule>();
+            this.kernel.Load<ContactsModule>();
             
             this.kernel.Bind<IWindowManager>().To<WindowManager>().InSingletonScope();
 

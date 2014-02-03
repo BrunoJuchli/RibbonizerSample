@@ -5,7 +5,6 @@
     using System.Linq;
     using System.Reflection;
 
-
     public class SingleChildConductor : ILifecycleExtension
     {
         private readonly ILifecycleController lifecycleController;
@@ -37,6 +36,8 @@
 
         public void Deactivate()
         {
+            this.viewModelNotifyPropertyChanged.PropertyChanged -= this.HandlePropertyChanged;
+
             this.childViewModelProperties.ForEach(x => x.DeactivateChild());
             this.childViewModelProperties.Clear();
             this.childViewModelProperties = null;

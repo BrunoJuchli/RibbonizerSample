@@ -3,10 +3,11 @@
     using System;
     using System.Linq;
     using System.Windows.Controls;
-
+    using System.Windows.Media;
     using Caliburn.Micro;
 
     using PropertyChanged;
+    using Ribbonizer;
 
     [ImplementPropertyChanged]
     public class EmailListViewModel : IPageViewModel
@@ -44,6 +45,16 @@
                               };
 
             this.SelectedItems = new BindableCollection<EmailViewModel>();
+        }
+
+        public string Header
+        {
+            get { return "Mail"; }
+        }
+
+        public ImageSource Image
+        {
+            get { return ResourceLoader.GetImage<EmailListViewModel>("mail.ico"); }
         }
 
         public IObservableCollection<EmailViewModel> Emails { get; private set; }

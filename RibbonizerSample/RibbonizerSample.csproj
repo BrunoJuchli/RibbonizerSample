@@ -83,6 +83,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Contacts\ContactsModule.cs" />
     <Compile Include="Contacts\ContactsRibbonGroupDefinition.cs" />
     <Compile Include="Contacts\ContactsRibbonTabDefinition.cs" />
     <Compile Include="Contacts\ContactListView.xaml.cs">
@@ -97,6 +98,7 @@
     <Compile Include="Emails\DeleteEmailCommand.cs" />
     <Compile Include="Emails\CreateEmailCommand.cs" />
     <Compile Include="Emails\DeleteEmailRibbonButtonDefinition.cs" />
+    <Compile Include="Emails\EmailModule.cs" />
     <Compile Include="Emails\EmailRibbonGroupDefinition.cs" />
     <Compile Include="Emails\CreateEmailRibbonButtonDefinition.cs" />
     <Compile Include="Emails\EmailsRibbonTabDefinition.cs" />
@@ -187,10 +189,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\mail.ico" />
+    <Resource Include="Emails\mail.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\contact.png" />
+    <Resource Include="Contacts\contact.png" />
     <Resource Include="Resources\calendar.png" />
   </ItemGroup>
   <ItemGroup>

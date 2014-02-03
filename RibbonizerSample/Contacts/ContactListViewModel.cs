@@ -1,8 +1,10 @@
 ﻿namespace RibbonizerSample.Contacts
 {
+    using System.Windows.Media;
     using Caliburn.Micro;
 
     using PropertyChanged;
+    using Ribbonizer;
 
     [ImplementPropertyChanged]
     public class ContactListViewModel : IPageViewModel
@@ -42,6 +44,16 @@
                                             Organization = "Teleworm"
                                         }
                                 };
+        }
+
+        public string Header
+        {
+            get { return "Contacts"; }
+        }
+
+        public ImageSource Image
+        {
+            get { return ResourceLoader.GetImage<ContactListViewModel>("contact.png"); }
         }
 
         public IObservableCollection<ContactViewModel> Contacts { get; private set; }
