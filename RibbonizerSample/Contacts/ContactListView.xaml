@@ -11,11 +11,6 @@
         ItemsSource="{Binding Path=Contacts}"
         SelectedItem="{Binding Path=SelectedItem}">
 
-        <ListBox.Resources>
-            <!-- Set SelectedItem Background here -->
-            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Yellow"/>
-        </ListBox.Resources>
-
         <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
                 <UniformGrid/>
