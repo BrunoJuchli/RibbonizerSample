@@ -10,6 +10,9 @@
 
         Uri LargeImage { get; }
 
+        /// <summary>
+        /// The Implementation of the command which provides the Guard and the Execute-Action for this Ribbon Tool.
+        /// </summary>
         Type CommandType { get; }
     }
 }
