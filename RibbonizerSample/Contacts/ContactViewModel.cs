@@ -1,5 +1,7 @@
 ﻿namespace RibbonizerSample.Contacts
 {
+    using System.Globalization;
+
     using PropertyChanged;
 
     [ImplementPropertyChanged]
@@ -13,7 +15,12 @@
 
         public override string ToString()
         {
-            return this.GetType().Name;
+            return string.Format(
+                CultureInfo.InvariantCulture,
+                "{0} '{1} {2}'",
+                this.GetType().Name,
+                this.FirstName,
+                this.LastName);
         }
     }
 }
