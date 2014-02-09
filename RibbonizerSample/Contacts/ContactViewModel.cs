@@ -10,5 +10,10 @@
         public string LastName { get; set; }
 
         public string Organization { get; set; }
+
+        public override string ToString()
+        {
+            return this.GetType().Name;
+        }
     }
 }

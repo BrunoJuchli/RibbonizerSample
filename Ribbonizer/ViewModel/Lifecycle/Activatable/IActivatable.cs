@@ -1,6 +1,6 @@
 ﻿namespace Ribbonizer.ViewModel.Lifecycle.Activatable
 {
-    internal interface IActivatable
+    public interface IActivatable
     {
         void Activate();
     }

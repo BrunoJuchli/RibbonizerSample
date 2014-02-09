@@ -9,19 +9,24 @@
 
         private readonly IViewModelActivationLoggingCollection activationLoggingCollection;
 
-        public ActivationLoggingExtension(object viewModel, IViewModelActivationLoggingCollection activationLoggingCollection)
+        private readonly IActivatedViewModelsCollection activatedViewModels;
+
+        public ActivationLoggingExtension(object viewModel, IViewModelActivationLoggingCollection activationLoggingCollection, IActivatedViewModelsCollection activatedViewModels)
         {
             this.viewModel = viewModel;
             this.activationLoggingCollection = activationLoggingCollection;
+            this.activatedViewModels = activatedViewModels;
         }
 
         public void Activate()
         {
+            this.activatedViewModels.Add(this.viewModel.ToString());
             this.activationLoggingCollection.Add(string.Format("{0}: {1} + Activated", index++, this.viewModel));
         }
 
         public void Deactivate()
         {
+            this.activatedViewModels.Remove(this.viewModel.ToString());
             this.activationLoggingCollection.Add(string.Format("{0}: {1} - Deactivated", index++, this.viewModel));
         }
     }

@@ -108,10 +108,12 @@
     <Compile Include="Emails\EmailListViewModel.cs" />
     <Compile Include="Emails\EmailViewModel.cs" />
     <Compile Include="IPageViewModel.cs" />
+    <Compile Include="SampleTracking\ActivatedViewModelsCollection.cs" />
     <Compile Include="SampleTracking\ActivationLoggingView.xaml.cs">
       <DependentUpon>ActivationLoggingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="SampleTracking\ActivationLoggingViewModel.cs" />
+    <Compile Include="SampleTracking\IActivatedViewModelsCollection.cs" />
     <Compile Include="SampleTracking\ListBoxBehavior.cs" />
     <Compile Include="SampleTracking\ActivationLoggingExtension.cs" />
     <Compile Include="SampleTracking\ActivationLoggingExtensionProvider.cs" />

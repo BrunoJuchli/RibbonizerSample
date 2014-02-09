@@ -8,9 +8,10 @@
 
     using PropertyChanged;
     using Ribbonizer;
+    using Ribbonizer.ViewModel.Lifecycle.Activatable;
 
     [ImplementPropertyChanged]
-    public class EmailListViewModel : IPageViewModel
+    public class EmailListViewModel : IPageViewModel, IDeactivatable
     {
         public EmailListViewModel()
         {
@@ -70,6 +71,11 @@
         public override string ToString()
         {
             return this.GetType().Name;
+        }
+
+        public void Deactivate()
+        {
+            this.SelectedItems.Clear();
         }
     }
 }

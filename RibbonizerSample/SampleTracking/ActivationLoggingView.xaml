@@ -5,15 +5,64 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:sampleTracking="clr-namespace:RibbonizerSample.SampleTracking"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <ListBox HorizontalAlignment="Stretch"
-             VerticalAlignment="Stretch"
-             ItemsSource="{Binding Path=ActivationLoggingCollection}"
-             sampleTracking:ListBoxBehavior.ScrollOnNewItem="true">
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <TextBlock Text="{Binding}"/>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+             d:DesignHeight="100" d:DesignWidth="600">
+    <Grid VerticalAlignment="Stretch"
+          HorizontalAlignment="Stretch">      
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26px"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" BorderBrush="#FF252A30" CornerRadius="7" BorderThickness="1">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="1.036,0.367" StartPoint="-0.194,0.362">
+                    <GradientStop Color="#AAE098" Offset="0.1"/>
+                    <GradientStop Color="#D5E9D4" Offset="0.9"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Border Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" BorderBrush="#FF252A30" CornerRadius="7" BorderThickness="1">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="1.036,0.367" StartPoint="-0.194,0.362">
+                    <GradientStop Color="#AAE098" Offset="0.1"/>
+                    <GradientStop Color="#D5E9D4" Offset="0.9"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Currently Active View Models"/>
+        <ListBox HorizontalAlignment="Stretch"
+                 Grid.Row="1"
+                 Grid.Column="0"
+                 VerticalAlignment="Stretch"
+                 ItemsSource="{Binding Path=ActivatedViewModels}"
+                 sampleTracking:ListBoxBehavior.ScrollOnNewItem="true">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Label Grid.Row="0" Grid.Column="1" Content="View Model Activation Log"/>
+        <ListBox HorizontalAlignment="Stretch"
+                 Grid.Row="1"
+                 Grid.Column="1"
+                 VerticalAlignment="Stretch"
+                 ItemsSource="{Binding Path=ActivationLoggingCollection}"
+                 sampleTracking:ListBoxBehavior.ScrollOnNewItem="true">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
 </UserControl>

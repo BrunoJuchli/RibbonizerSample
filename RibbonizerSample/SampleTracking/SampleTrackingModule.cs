@@ -9,6 +9,10 @@
             this.Bind<IViewModelActivationLoggingCollection>()
                 .To<ViewModelActivationLoggingCollection>()
                 .InSingletonScope();
+
+            this.Bind<IActivatedViewModelsCollection>()
+                .To<ActivatedViewModelsCollection>()
+                .InSingletonScope();
         }
     }
 }
