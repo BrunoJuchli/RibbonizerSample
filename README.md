@@ -9,7 +9,26 @@ The purpose of this repository is to show a way how one can implement a ribbon m
 * The DeleteContactCommand is only instanciated when a contact is actually selected, however, its button is shown as soon as the user navigates to the contacts page
 * The DeleteEmailCommand shows how one can handle multi-selection
 
-### Note: Property Changed Notifications
+
+## Conventions
+### View & ViewModel naming
+* All view model names end with -"ViewModel".
+* The view for a a view model has the same name, except, ending with -"View" instead of -"ViewModel".
+
+Examples:
+* `FooViewModel` + `FooView`
+* `BarViewModel` + `BarView`
+
+### Active View Model Tracking
+To track child view models:
+* the child view model must be accessible on the parent view model as property
+* the property's return type's name must end with -"ViewModel"
+
+Examples:
+* `public IChildViewModel Child { get; private set; }`
+* `public ContactViewModel SelectedContact { get; private set;`
+
+## Note: Property Changed Notifications
 
 Most view models of this sample application do not implement [INotifyPropertyChanged](http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx). The excellent [NotifyPropertyChanged.Fody](https://raw.github.com/Fody/PropertyChanged) is automatically weaving this into the assembly.
 
