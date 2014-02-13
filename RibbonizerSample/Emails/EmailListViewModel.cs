@@ -13,11 +13,13 @@
     [ImplementPropertyChanged]
     public class EmailListViewModel : IPageViewModel, IDeactivatable
     {
+        private readonly IObservableCollection<EmailViewModel> emails;
+        private readonly IObservableCollection<EmailViewModel> selectedEmails;
+
         public EmailListViewModel()
         {
             var now = DateTimeOffset.Now;
-
-            this.Emails = new BindableCollection<EmailViewModel>
+            this.emails = new BindableCollection<EmailViewModel>
                               {
                                   new EmailViewModel
                                       {
@@ -45,7 +47,7 @@
                                       }
                               };
 
-            this.SelectedItems = new BindableCollection<EmailViewModel>();
+            this.selectedEmails = new BindableCollection<EmailViewModel>();
         }
 
         public string Header
@@ -58,14 +60,20 @@
             get { return ResourceLoader.GetImage<EmailListViewModel>("mail.ico"); }
         }
 
-        public IObservableCollection<EmailViewModel> Emails { get; private set; }
+        public IObservableCollection<EmailViewModel> Emails
+        {
+            get { return this.emails; }
+        }
 
-        public IObservableCollection<EmailViewModel> SelectedItems { get; private set; }
+        public IObservableCollection<EmailViewModel> SelectedEmails
+        {
+            get { return this.selectedEmails; }
+        }
 
         public void HandleSelectionChanged(SelectionChangedEventArgs eventArgs)
         {
-            this.SelectedItems.RemoveRange(eventArgs.RemovedItems.OfType<EmailViewModel>());
-            this.SelectedItems.AddRange(eventArgs.AddedItems.OfType<EmailViewModel>());
+            this.SelectedEmails.RemoveRange(eventArgs.RemovedItems.OfType<EmailViewModel>());
+            this.SelectedEmails.AddRange(eventArgs.AddedItems.OfType<EmailViewModel>());
         }
 
         public override string ToString()
@@ -75,7 +83,7 @@
 
         public void Deactivate()
         {
-            this.SelectedItems.Clear();
+            this.SelectedEmails.Clear();
         }
     }
 }

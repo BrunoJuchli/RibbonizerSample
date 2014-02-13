@@ -15,17 +15,17 @@
         public DeleteEmailCommand(EmailListViewModel viewModel)
         {
             this.viewModel = viewModel;
-            this.viewModel.SelectedItems.CollectionChanged += this.HandleCollectionChanged;
+            this.viewModel.SelectedEmails.CollectionChanged += this.HandleCollectionChanged;
         }
 
         public bool CanExecute
         {
-            get { return this.viewModel.SelectedItems.Any(); }
+            get { return this.viewModel.SelectedEmails.Any(); }
         }
 
         public IEnumerable<IResult> Execute()
         {
-            var toDelete = this.viewModel.SelectedItems.ToList();
+            var toDelete = this.viewModel.SelectedEmails.ToList();
             yield return new AnonymousResult(() => this.viewModel.Emails.RemoveRange(toDelete));
         }
 
