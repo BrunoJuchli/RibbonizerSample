@@ -1,6 +1,7 @@
 RibbonizerSample
 ================
 
+[![Build status](https://ci.appveyor.com/api/projects/status?id=8ok9slq91ju4qdjr)](https://ci.appveyor.com/project/ribbonizersample)
 ## Overview
 The purpose of this repository is to show a way how one can implement a ribbon menu with loose coupling and good separation of concern, even for applications with complex view model trees.
 
