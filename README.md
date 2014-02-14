@@ -31,7 +31,7 @@ Examples:
 
 ## Note: Property Changed Notifications
 
-Most view models of this sample application do not implement [INotifyPropertyChanged](http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx). The excellent [NotifyPropertyChanged.Fody](https://raw.github.com/Fody/PropertyChanged) is automatically weaving this into the assembly.
+Most view models of this sample application do not implement [INotifyPropertyChanged](http://msdn.microsoft.com/en-us/library/system.componentmodel.inotifypropertychanged.aspx). The excellent [PropertyChanged.Fody](https://raw.github.com/Fody/PropertyChanged) is automatically weaving this into the assembly.
 
 ## Code Organization
 This sample is currently split into three projects:
